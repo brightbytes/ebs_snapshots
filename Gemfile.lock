@@ -1,0 +1,37 @@
+GIT
+  remote: git://github.com/aws/aws-sdk-core-ruby.git
+  revision: 683407ec7d9aac9101ac41c47676d6dce471e004
+  specs:
+    aws-sdk-core (2.0.9)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+
+PATH
+  remote: .
+  specs:
+    ebs_snapshots (0.0.1)
+      aws-sdk-core
+      bunny
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    amq-protocol (1.9.2)
+    builder (3.2.2)
+    bunny (1.6.3)
+      amq-protocol (>= 1.9.2)
+    jmespath (1.0.1)
+      multi_json (~> 1.0)
+    multi_json (1.10.1)
+    multi_xml (0.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk-core (~> 2.0.0.rc8)!
+  bundler (~> 1.5)
+  bunny (>= 1.6.0)
+  ebs_snapshots!
