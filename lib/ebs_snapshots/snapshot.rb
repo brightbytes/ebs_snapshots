@@ -1,6 +1,6 @@
 require 'aws-sdk-core'
-require 'ebs_snapshots/instance.rb'
-require 'ebs_snapshots'
+require Dir.pwd + '/lib/ebs_snapshots/instance.rb'
+require Dir.pwd + '/lib/ebs_snapshots.rb'
 
 
 module EbsSnapshots

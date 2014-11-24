@@ -1,5 +1,5 @@
 # Comma separated instance name to process snapshots.
-instance_names: PipelineStagingELK
+instance_names: ec2-demo-Instance
 
 # age in days to retain snapshots
 retention:
@@ -9,11 +9,11 @@ retention:
     span: 4
 
 # log file location if nothing specified default value will be /var/log/ebs_snapshots.log
-log_file_path : /home/clogeny/cron_snapshots.log
+log_file_path : /var/log/ebs_snapshots.log
 
 # A short description to identify the snapshot. This tool creates the snapshot with description as "<namespace>-<Time>".
-  # e.g Pipeline-2014-11-10.110630 where namespace=Pipeline
-namespace : ELKSnap
+  # e.g demo-2014-11-10.110630 where namespace=demo
+namespace : ec2-demo-snapshot
 
 # log level, simply assign the appropriate constant to level
   # Valid Values debug, info, warn, error, fatal, and unknown and default value is warn
