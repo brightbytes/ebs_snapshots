@@ -1,4 +1,4 @@
-require 'ebs_snapshots'
+require Dir.pwd + '/lib/ebs_snapshots.rb'
 
 module EbsSnapshots
   module Instance
@@ -74,4 +74,3 @@ module EbsSnapshots
 
   end
 end
-

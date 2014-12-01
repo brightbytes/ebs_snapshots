@@ -8,8 +8,19 @@ Add this line to your application's Gemfile:
 
     gem 'ebs_snapshots', git: "git@github.com:brightbytes/ebs_snapshots.git"
 
-# Configure
-Within /config you will find several sample configuration files ending in **.sample**. Simply make copies of these files without the .sample suffix, such as config.yml, and adjust as needed.
+# Configure using rake
+This rake tasks that writes the config/config.yml to the pwd.
+
+    rake ebs_snapshots:copy
+
+This rake task that runs all of the appropriate snapshot/cleanup methods and accepts an optional argument that is the path to a customized config file.
+
+    rake ebs_snapshots:cleanup[<config file path>]
+
+# Configure using library method
+This library method that runs all of the appropriate snapshot/cleanup methods and accepts an optional argument that is the path to a customized config file.
+
+    ruby lib/snapshot_cleanup.rb <config file path>
 
 # Setup volume filter
 Update config/config.yml with the configuration required to find out the volumes for snapshot.

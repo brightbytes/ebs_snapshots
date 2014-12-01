@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 require 'bunny'
-require 'ebs_snapshots'
+require Dir.pwd + '/lib/ebs_snapshots.rb'
 include EbsSnapshots
 
 # Messaging Queue for triggering snapshot actions
@@ -22,12 +22,12 @@ begin
   # creates snapshot using data from config/config.yml file.
 
   if message_body.downcase == 'create'
-    EbsSnapshots::EbsSnapshots.create_snapshots
+    EbsSnapshots.create_snapshots
     $LOG.info("Snapshot Created... ")
   # Message :: delete
   # deletes snapshot using data from config/config.yml file.
   elsif message_body.downcase == 'delete'
-    EbsSnapshots::EbsSnapshots.prune_snapshots
+    EbsSnapshots.prune_snapshots
     $LOG.info("Snapshot Deleted... ")
   else
     $LOG.error("Invalid request.\n  Supported messages \n    1] create \n    2] delete")
