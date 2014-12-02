@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = EbsSnapshots::VERSION
   spec.authors       = ["Michael Mell"]
   spec.email         = ["michael.mell@brightbytes.net"]
-  spec.summary       = %q{ebs snapshotting tool .}
-  spec.description   = %q{AWS base ebs snapshot tool.}
+  spec.summary       = %q{EBS snapshotting tool.}
+  spec.description   = %q{A ruby gem to facilitate snapshotting AWS EBS volumes.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -1,20 +1,24 @@
-# Comma separated instance name to process snapshots.
-instance_names: ec2-demo-Instance
+# Default config
+# Provides defaults for all gem invocations.
+# All values may be overridden by the config in the method invocation.
+#
+# Snapshot retention settings
+# There is no capability to snapshot a volume more than once per day.
+retain_for_days: 14 # keep every day for <retain_for_days> days
+interval_days: 7 # every <interval_days> keep one snapshot for <interval_days * intervals> days
+intervals: 4
 
-# age in days to retain snapshots
-retention:
-  daily: 14 # keep every day for <daily> days
-  periodic: # every <interval> days keep one snapshot for <interval * span> days
-    interval: 7
-    span: 4
+# Log file location
+log_file_path: log.log
+log_level: info
 
-# log file location if nothing specified default value will be /var/log/ebs_snapshots.log
-log_file_path : /var/log/ebs_snapshots.log
+# A short description to identify the snapshot
+# This tool creates the snapshot with description as "<namespace>-<Time>".
+# e.g ebs-snapshot-2014-11-10.110630
+namespace: EbsSnapshots
 
-# A short description to identify the snapshot. This tool creates the snapshot with description as "<namespace>-<Time>".
-  # e.g demo-2014-11-10.110630 where namespace=demo
-namespace : ec2-demo-snapshot
-
-# log level, simply assign the appropriate constant to level
-  # Valid Values debug, info, warn, error, fatal, and unknown and default value is warn
-log_level : warn
+exclude_devices:
+  - /dev/sda1
+instance_names: []
+instance_ids: []
+image_ids: []
