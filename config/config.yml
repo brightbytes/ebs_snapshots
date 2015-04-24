@@ -18,7 +18,7 @@ log_level: info
 namespace: EbsSnapshots
 
 exclude_devices:
-  - /dev/sda1
+  - /dev/sda1 # typically this is the root volume on paravirtual and hvm
 instance_names: []
 instance_ids: []
 image_ids: []
