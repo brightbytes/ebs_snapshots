@@ -31,6 +31,7 @@ module EbsSnapshots
     end
 
     def is_periodic?(age)
+      return true if config['intervals'].zero?
       (age_in_days(EPOCH) - age) % config['intervals'] == 0
     end
 
@@ -47,8 +48,9 @@ module EbsSnapshots
       snapshot_ids = []
       resp[:snapshots].each { |i|
         age = age_in_days(Time.at(i[:start_time]))
-        next if age < config['retain_for_days']
-        next if is_periodic? and is_within_periodic?(age)
+        logger.debug("age #{age}")
+        next if age < config['retain_for_days'] # there will be retain_for_days + 1 snapshots
+        next if is_periodic?(age) and is_within_periodic?(age) # there will be retain_for_days + 1 + intervals snapshots
         snapshot_ids << i[:snapshot_id]
       }
       logger.info("snapshots_to_delete found #{snapshot_ids.inspect}")
